@@ -44,8 +44,8 @@ try {
     # Browser Paths
     # $env:CHROMIUM_PATH = "$SAGE_PATH\browser_bins\chrome-asan\chrome"
     # $env:CHROMEDRIVER_PATH = "$SAGE_PATH\browser_bins\chromedriver"
-    $env:CHROMIUM_PATH = "C:\Users\oseo1\works\SaGe-Browser-Fuzzer\browser_bins\chrome-win64\chrome-win64\chrome.exe"
-    $env:CHROMEDRIVER_PATH = "C:\Users\oseo1\works\SaGe-Browser-Fuzzer\browser_bins\chromedriver-win64\chromedriver-win64\chromedriver.exe"
+    $env:CHROMIUM_PATH = "$SAGE_PATH\browser_bins\chrome-win64\chrome-win64\chrome.exe"
+    $env:CHROMEDRIVER_PATH = "$SAGE_PATH\browser_bins\chromedriver-win64\chromedriver-win64\chromedriver.exe"
     $env:FIREFOX_PATH = "$SAGE_PATH\browser_bins\firefox-asan\firefox"
     $env:FIREFOXDRIVER_PATH = "$SAGE_PATH\browser_bins\firefox-asan\geckodriver"
     $env:WEBKIT_BINARY_PATH = "$SAGE_PATH\browser_bins\webkit\MiniBrowser"
