@@ -623,10 +623,10 @@ def main():
         if msg == "generate":
             seed = generator.generate_one()
             try:
-                f = open(target_file, 'w')
+                f = open(target_file, 'w', encoding='utf-8')
                 f.write(seed)
                 f.close()
-            except IOError as e:
+            except Exception as e:
                 print(f'Error writing to output: {e}')
             print("done")
             sys.stdout.flush()

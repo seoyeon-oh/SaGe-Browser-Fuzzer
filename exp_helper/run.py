@@ -110,7 +110,7 @@ def main():
     #         f.write(line.decode("utf-8"))
     else:
         script_path = sys.argv[0]
-        sub_args = ["python3", script_path, "-b", browser, "-f", tool, "-e", exp_type, "-t", time,
+        sub_args = ["python", script_path, "-b", browser, "-f", tool, "-e", exp_type, "-t", time,
                     "-o", output_dir, "-p", "1"] + ["-x", str(execution_iteration)] if execution_iteration else []
         threads = []
         for i in range(parallel):

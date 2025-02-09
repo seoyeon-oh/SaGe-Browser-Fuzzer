@@ -20,10 +20,10 @@ class ChromiumSeleniumBrowser(FuzzedBrowser):
         self.thread_id = thread_id
         self.timeout_sec = int(timeout) / 1000
         self.browser = None  # actually it is a driver
-        self.tmp_dir = "/tmp/chromiumtmpdir" + str(self.thread_id) + "pid" + str(
+        self.tmp_dir = "C:\\tmp\\chromiumtmpdir" + str(self.thread_id) + "pid" + str(
             os.getpid()) + "rand" + str(random.random())
         os.makedirs(self.tmp_dir, exist_ok=True)
-        self.msg_path = self.tmp_dir + "/tmp_log"
+        self.msg_path = self.tmp_dir + "\\tmp_log"
         self.use_xvfb = True
         if "NO_XVFB" in os.environ:
             logging.info(f"[{self.thread_id}]: no xvfb")

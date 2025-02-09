@@ -84,12 +84,12 @@ class EvoGrammarFuzzer(Fuzzer):
         #     logging.error(f"doesn't have DOMATO_PATH env var")
         #     exit()
         path = os.path.dirname(__file__)
-        path = os.path.join(path, "my_fuzzer/generator.py")
+        path = os.path.join(path, "my_fuzzer\\generator.py")
         if not os.path.exists(path):
             logging.error(f"doesn't have {path} doens't exist")
             exit()
         self.domato_path = path
-        self.tmp_path = "/tmp/domato-fuzzer/tmpoutput-" + str(self.id) + "pid" + str(
+        self.tmp_path = "C:\\tmp\\domato-fuzzer\\tmpoutput-" + str(self.id) + "pid" + str(
             os.getpid()) + "rand" + str(random.random())
 
         self.target_file = os.path.join(self.tmp_path, "tmp.html")
@@ -104,7 +104,7 @@ class EvoGrammarFuzzer(Fuzzer):
         self.new_child()
 
     def new_child(self):
-        self.p = subprocess.Popen(["python3", self.domato_path],
+        self.p = subprocess.Popen(["python", self.domato_path],
                                   stdout=subprocess.PIPE,
                                   stdin=subprocess.PIPE)
         self.p.stdin.write(f"init: {self.target_file}\n".encode('utf-8'))
@@ -234,7 +234,7 @@ class FileBasedDomatoFuzzer(Fuzzer):
             logging.error("DOMATO_PATH is not in env var")
             exit()
 
-        self.tmp_path = "/tmp/domato-fuzzer/tmpoutput-" + str(self.id) + "pid" + str(
+        self.tmp_path = "C:\\tmp\\domato-fuzzer\\tmpoutput-" + str(self.id) + "pid" + str(
             os.getpid()) + "rand" + str(random.random())
         self.target_file = os.path.join(self.tmp_path, "tmp.html")
         os.makedirs(self.tmp_path, exist_ok=True)
@@ -243,7 +243,7 @@ class FileBasedDomatoFuzzer(Fuzzer):
         if os.path.exists(self.target_file):
             os.remove(self.target_file)
         p = subprocess.run(
-            ["python3", self.domato_path, "--file", self.target_file], stdout=subprocess.PIPE)
+            ["python", self.domato_path, "--file", self.target_file], stdout=subprocess.PIPE)
         if os.path.exists(self.target_file):
             return self.target_file
         # did not generate input successfully
@@ -265,7 +265,7 @@ class FileBasedMinervaFuzzer(Fuzzer):
             logging.error("MINERVA_PATH is not in env var")
             exit()
 
-        self.tmp_path = "/tmp/minerva-fuzzer/tmpoutput-" + str(self.id) + "pid" + str(
+        self.tmp_path = "C:\\tmp\\minerva-fuzzer\\tmpoutput-" + str(self.id) + "pid" + str(
             os.getpid()) + "rand" + str(random.random())
         self.target_file = os.path.join(self.tmp_path, "tmp.html")
         os.makedirs(self.tmp_path, exist_ok=True)
@@ -274,7 +274,7 @@ class FileBasedMinervaFuzzer(Fuzzer):
         if os.path.exists(self.target_file):
             os.remove(self.target_file)
         p = subprocess.run(
-            ["python3", self.minerva_path, self.target_file], stdout=subprocess.PIPE)
+            ["python", self.minerva_path, self.target_file], stdout=subprocess.PIPE)
         if os.path.exists(self.target_file):
             return self.target_file
         # did not generate input successfully
@@ -296,7 +296,7 @@ class FileBasedFreeDomFuzzer(Fuzzer):
             logging.error("FREEDOM_PATH is not in env var")
             exit()
 
-        self.tmp_path = "/tmp/freedom-fuzzer/tmpoutput-" + str(self.id) + "pid" + str(
+        self.tmp_path = "C:\\tmp\\freedom-fuzzer\\tmpoutput-" + str(self.id) + "pid" + str(
             os.getpid()) + "rand" + str(random.random())
         os.makedirs(self.tmp_path, exist_ok=True)
 
@@ -305,7 +305,7 @@ class FileBasedFreeDomFuzzer(Fuzzer):
             path = os.path.join(self.tmp_path, file)
             os.remove(path)
         p = subprocess.run(
-            ["python3", self.freedom_path, "-i", "1", "-m", "generate", "-n", "1", "-o",
+            ["python", self.freedom_path, "-i", "1", "-m", "generate", "-n", "1", "-o",
              self.tmp_path], stdout=subprocess.PIPE)
         for file in os.listdir(self.tmp_path):
             path = os.path.join(self.tmp_path, file)
@@ -329,7 +329,7 @@ class FileBasedFavocadoFuzzer(Fuzzer):
             logging.error("FAVOCADO_PATH is not in env var")
             exit()
 
-        self.tmp_path = "/tmp/favocado-fuzzer/tmpoutput-" + str(self.id) + "pid" + str(
+        self.tmp_path = "C:\\tmp\\favocado-fuzzer\\tmpoutput-" + str(self.id) + "pid" + str(
             os.getpid()) + "rand" + str(random.random())
         os.makedirs(self.tmp_path, exist_ok=True)
 

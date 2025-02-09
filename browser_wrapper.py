@@ -32,10 +32,10 @@ class WebKitPlaywrightBrowser(FuzzedBrowser):
         self.random_close = random_close
         self.browser = None
         self.current_page = None
-        self.tmp_dir = "/tmp/webkittmpdir" + str(self.thread_id) + "pid" + str(
+        self.tmp_dir = "C:\\tmp\webkittmpdir" + str(self.thread_id) + "pid" + str(
             os.getpid()) + "rand" + str(random.random())
         os.makedirs(self.tmp_dir, exist_ok=True)
-        self.msg_path = self.tmp_dir + "/tmp_log"
+        self.msg_path = self.tmp_dir + "\\tmp_log"
         self.launch_browser()
 
     def launch_browser(self):

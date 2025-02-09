@@ -66,7 +66,7 @@ def get_cmd_arguments(exp_type, tool, browser, time, target_output_dir, executio
     name = "-".join([exp_type, tool, browser, time])
     port = os.environ["PORT"]
     fuzzer_path = os.environ["FUZZER_PATH"]
-    fuzzer_args.append("python3")
+    fuzzer_args.append("python")
     fuzzer_args.append(fuzzer_path)
 
     if exp_type == "sancov":
@@ -154,7 +154,7 @@ def get_env(exp_type, tool, browser) -> dict:
     return_envs["PORT"] = port
 
     if exp_type == "sancov":
-        shm_dir = "/tmp/sancov_output/shm"
+        shm_dir = "C:\\tmp\\sancov_output\\shm"
         if not os.path.exists(shm_dir):
             os.makedirs(shm_dir, exist_ok=True)
         return_envs["SHM_DIR"] = shm_dir
